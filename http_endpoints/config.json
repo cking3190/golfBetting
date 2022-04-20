@@ -1,5 +1,35 @@
 [
     {
+        "route": "/settrackingend",
+        "http_method": "GET",
+        "function_name": "set_end_distance",
+        "validation_method": "NO_VALIDATION",
+        "respond_result": true,
+        "fetch_custom_user_data": false,
+        "create_user_on_auth": false,
+        "disabled": false
+    },
+    {
+        "route": "/getAllBets",
+        "http_method": "GET",
+        "function_name": "GetAllBets",
+        "validation_method": "NO_VALIDATION",
+        "respond_result": true,
+        "fetch_custom_user_data": false,
+        "create_user_on_auth": false,
+        "disabled": false
+    },
+    {
+        "route": "/getLeaderboard",
+        "http_method": "GET",
+        "function_name": "getLeaderboard",
+        "validation_method": "NO_VALIDATION",
+        "respond_result": true,
+        "fetch_custom_user_data": false,
+        "create_user_on_auth": false,
+        "disabled": false
+    },
+    {
         "route": "/settrackingstart",
         "http_method": "GET",
         "function_name": "Post_Start",
@@ -30,16 +60,6 @@
         "disabled": false
     },
     {
-        "route": "/settrackingend",
-        "http_method": "GET",
-        "function_name": "set_end_distance",
-        "validation_method": "NO_VALIDATION",
-        "respond_result": true,
-        "fetch_custom_user_data": false,
-        "create_user_on_auth": false,
-        "disabled": false
-    },
-    {
         "route": "/postBet",
         "http_method": "POST",
         "function_name": "PostBet",
@@ -50,29 +70,9 @@
         "disabled": false
     },
     {
-        "route": "/getAllBets",
-        "http_method": "GET",
-        "function_name": "GetAllBets",
-        "validation_method": "NO_VALIDATION",
-        "respond_result": true,
-        "fetch_custom_user_data": false,
-        "create_user_on_auth": false,
-        "disabled": false
-    },
-    {
         "route": "/postWinner",
         "http_method": "POST",
         "function_name": "postWinner",
-        "validation_method": "NO_VALIDATION",
-        "respond_result": true,
-        "fetch_custom_user_data": false,
-        "create_user_on_auth": false,
-        "disabled": false
-    },
-    {
-        "route": "/getLeaderboard",
-        "http_method": "GET",
-        "function_name": "getLeaderboard",
         "validation_method": "NO_VALIDATION",
         "respond_result": true,
         "fetch_custom_user_data": false,

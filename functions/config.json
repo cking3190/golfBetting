@@ -1,16 +1,27 @@
 [
     {
-        "name": "Post_Start",
+        "name": "getMemberBets",
         "private": false,
         "run_as_system": true
     },
     {
-        "name": "get_all_tracking",
+        "name": "getLeaderboard",
         "private": false,
         "run_as_system": true
+    },
+    {
+        "name": "getOneBet",
+        "private": false,
+        "run_as_system": true,
+        "disable_arg_logs": true
     },
     {
         "name": "set_end_distance",
+        "private": false,
+        "run_as_system": true
+    },
+    {
+        "name": "updateScore",
         "private": false,
         "run_as_system": true
     },
@@ -25,22 +36,17 @@
         "run_as_system": true
     },
     {
-        "name": "getMemberBets",
+        "name": "Post_Start",
+        "private": false,
+        "run_as_system": true
+    },
+    {
+        "name": "get_all_tracking",
         "private": false,
         "run_as_system": true
     },
     {
         "name": "postWinner",
-        "private": false,
-        "run_as_system": true
-    },
-    {
-        "name": "getLeaderboard",
-        "private": false,
-        "run_as_system": true
-    },
-    {
-        "name": "updateScore",
         "private": false,
         "run_as_system": true
     }
