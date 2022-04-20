@@ -1,0 +1,7 @@
+{
+    "app_id": "golftracking-oekmn",
+    "config_version": 20210101,
+    "name": "GolfTracking",
+    "location": "US-VA",
+    "deployment_model": "LOCAL"
+}
