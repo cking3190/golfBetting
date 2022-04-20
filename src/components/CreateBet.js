@@ -36,18 +36,20 @@ export default function MainView() {
 
     useEffect(() => {
       if (JSON.parse(localStorage.getItem('user'))){
-        //Get Members
-        //Set current User
         setMembers(MEMBERS)
         setCurrentUser(JSON.parse(localStorage.getItem('user')))
         setBets(["Longest Drive", "Closest to The Pin", "Best Score", "Longest Putt"])
         setWagers([1,5,10,20])
+        const u = MEMBERS.filter(mem => mem.username == JSON.parse(localStorage.getItem('user')).username)
+        setAgainst([...u])        
       }
       else {
+        console.log('here')
         window.location.href = window.location.origin
       }
 
     }, [])
+
 
     const changeBetMembers = (mem) => {
         let currentMembers = against
