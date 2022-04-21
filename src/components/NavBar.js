@@ -6,7 +6,8 @@ import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import GolfCourseIcon from '@mui/icons-material/GolfCourse';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import LeaderboardIcon from '@mui/icons-material/Leaderboard';
+import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 
 export default function NavBar() {
   const [value, setValue] = useState('None');
@@ -39,8 +40,8 @@ export default function NavBar() {
       >
         <BottomNavigationAction label="Make Bet" value='makeBet' icon={<AttachMoneyIcon />} />
         <BottomNavigationAction label="My Bets" value='activeBets' icon={<GolfCourseIcon />} />
-        <BottomNavigationAction label="Leaderboard" value='leaderboard' icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Payouts" value='payouts' icon={<LocationOnIcon />} />
+        <BottomNavigationAction label="Leaderboard" value='leaderboard' icon={<LeaderboardIcon />} />
+        <BottomNavigationAction label="Payouts" value='payouts' icon={<PointOfSaleIcon />} />
       </BottomNavigation>
     </Box>
   );

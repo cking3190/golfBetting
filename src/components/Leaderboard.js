@@ -11,7 +11,7 @@ import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 import * as styles from './Leaderboard.styles'
 import axios from 'axios'
 import { initialFormatter } from './formatters';
-
+import dave from '../assets/daved.png'
 
 export default function Leaderboard() {
     const classes = styles.leaderboardStyles()
@@ -37,6 +37,9 @@ export default function Leaderboard() {
   
   return (
     <div className={classes.leaderboardContainer}>
+            <img src={dave} style={{position:'fixed', top:'10px', left:'50px'}} height='40px' width='40px'/>
+            <img src={dave} style={{position:'fixed', top:'10px', right:'50px'}} height='40px' width='40px'/>
+
         <Button color='secondary' variant='contained' style={{position:'fixed', top:'10px', right:'10px'}}onClick={()=>handleLogout()}> Logout </Button>
         <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
             { allBets 

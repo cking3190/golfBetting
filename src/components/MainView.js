@@ -9,6 +9,7 @@ import {
       import axios from 'axios'
 
 import BetCard from './BetCard'
+import dave from '../assets/daved.png'
 
 function filterByValue(array, string) {
   return array.filter(o =>
@@ -18,7 +19,7 @@ function filterByValue(array, string) {
 export default function MainView() {
   const [ bets, setBets ] = useState([])
   const [ visibileBets, setVisibleBets] = useState([])
-  const [betView, setBetView] = useState('myBets')
+  const [betView, setBetView] = useState('allBets')
 
 
     useEffect(() => {
@@ -35,7 +36,7 @@ export default function MainView() {
       if (betView === 'mybets') {
         setVisibleBets(bets)
       }
-      else if (betView == 'active'){
+      else if (betView == 'activeBets'){
         setVisibleBets(bets.filter(b => b.active == true))
 
       }
@@ -48,10 +49,13 @@ export default function MainView() {
 
   return (
     <Container style={{display:'flex', height:'90vh',overflowY:'scroll', flexDirection:'column', alignItems:'center'}}>
+                          <img src={dave} style={{position:'fixed', top:'10px', left:'50px'}} height='40px' width='40px'/>
+            <img src={dave} style={{position:'fixed', top:'10px', right:'50px'}} height='40px' width='40px'/>
+
+
               <div style={{marginTop:'20px'}}>
             <ButtonGroup variant="contained" aria-label="outlined primary button group">
-                <Button onClick={()=>setBetView('mybets')}  color={betView==='myBets'? 'primary' : 'secondary'}>My Bets</Button>
-                <Button onClick={()=>setBetView('active')}  color={betView==='active'? 'primary' : 'secondary'}>Active Bets</Button>
+                <Button onClick={()=>setBetView('activeBets')}  color={betView==='activeBets'? 'primary' : 'secondary'}>Active Bets</Button>
                 <Button onClick={()=>setBetView('allBets')} color={betView==='allBets'? 'primary' : 'secondary'}>All Bets</Button>
             </ButtonGroup>
             </div> 

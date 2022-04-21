@@ -67,7 +67,7 @@ export default function BetCard(props) {
         </CardContent>
         {
           props.betData.winner
-          ? <div>{props.betData.winner.username}  </div>
+          ? <div>WINNER - {props.betData.winner.name}  </div>
           : (        <div style={{position:'relative', top:'25px', left:'150px'}}>
           <Button onClick={() => toggleModal(true)} variant='contained'> Open Scores </Button>
           

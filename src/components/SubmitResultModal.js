@@ -87,6 +87,7 @@ export default function SubmitScoreModal(props) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
+          <div style={{fontSize:'.8rem'}}> You can only submit your own score, to make it easy for you simpletons I also made it so you can claim victory on the bet, but lets not be dicks about this. If you claim victory there's really no going back</div>
             {betData.members
             ? (betData.members.map((member) => <div> 
                 <ListItem>
@@ -95,8 +96,13 @@ export default function SubmitScoreModal(props) {
                         
                         <div>
                             <div>{member.name} </div>
-                            <TextField value={scoreInput} onChange={handleTextInput} style={{width:'3rem', height:'3rem'}}> </TextField>
-                            <Button variant='contained' style={{width:'5rem', height:'3rem'}} onClick={() => logScore(betData, scoreInput)}> Submit Score</Button>
+                            <div style={{display:'flex',justifyContent:'flex-start', width:'50vw'}}>
+                              <TextField value={scoreInput} onChange={handleTextInput} style={{width:'5rem', height:'1rem'}}> </TextField>
+                              <Button variant='contained' style={{width:'5rem', height:'3.2rem', marginLeft:'15px'}} onClick={() => logScore(betData, scoreInput)}> Submit Score</Button>
+
+
+                            </div>
+                            
                         </div>)
                         : (<div> <div> {member.name} </div><div> {member.score}</div> </div> )
                     }

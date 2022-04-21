@@ -13,6 +13,7 @@ import axios from 'axios'
 import { initialFormatter } from './formatters';
 import {getPayouts} from './api/CoreAPI'
 import {MEMBERS} from '../constants'
+import dave from '../assets/daved.png'
 
 export default function Payouts() {
     const classes = styles.leaderboardStyles()
@@ -46,6 +47,9 @@ export default function Payouts() {
   
   return (
     <div className={classes.leaderboardContainer}>
+                    <img src={dave} style={{position:'fixed', top:'10px', left:'50px'}} height='40px' width='40px'/>
+            <img src={dave} style={{position:'fixed', top:'10px', right:'50px'}} height='40px' width='40px'/>
+
 
              
 

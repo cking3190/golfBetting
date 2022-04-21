@@ -20,6 +20,8 @@ import {initialFormatter} from './formatters'
 import userEvent from '@testing-library/user-event';
 import {postBet} from './api/CoreAPI'
 
+
+
 export default function MainView() {
   const classes = styles.createBetStyles()
   const [ trackingEvents, setTrackingEvents ] = useState([])
