@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import { useTheme } from '@mui/material/styles';
 import {
   Card,
@@ -12,12 +12,19 @@ import {
 
 import {initialFormatter} from './formatters'
 import axios from 'axios'
+import {postScore} from './api/CoreAPI'
+import SubmitScoreModal from './SubmitResultModal';
+import * as styles from './BetCard.styles'
+
 
 
 
 export default function BetCard(props) {
   const theme = useTheme();
+  const classes = styles.betCardStyles()
   const [confirm, setConfirm] = useState(true)
+  const [currentUser, setCurrentUser] = useState({})
+  const [modalOpen, setModalOpen] = useState(false)
 
   // const submitWinner = (d) => {
   //   const data = {
@@ -29,20 +36,22 @@ export default function BetCard(props) {
   // window.location.reload();
   // }
 
-  const postScore = (d) => {
-    const data = {
-      id : d._id['$oid'],
-      username : "wparsons",
-      score: '10'
+
+  useEffect(()=> {
+    setCurrentUser(JSON.parse(localStorage.getItem('user')))
+
+  }, [])
+
+  const toggleModal = (tog) => {
+    setModalOpen(tog)
   }
-  console.log('won')
-  axios({ method: 'post', url: `https://us-east-1.aws.data.mongodb-api.com/app/golftracking-oekmn/endpoint/postScore`, data: data})
-  }
+
 
 
 
   return (
     <Card sx={{ display: 'flex', marginBottom:'20px' }}>
+      <SubmitScoreModal open={modalOpen} onChange={toggleModal} betData={props.betData} currentUser={currentUser}/>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <div style={{display:'flex'}}>
@@ -60,7 +69,7 @@ export default function BetCard(props) {
           props.betData.winner
           ? <div>{props.betData.winner.username}  </div>
           : (        <div style={{position:'relative', top:'25px', left:'150px'}}>
-          <Button onClick={() => postScore(props.betData)} variant='contained'> PostScore </Button>
+          <Button onClick={() => toggleModal(true)} variant='contained'> Open Scores </Button>
           
         </div>)
 

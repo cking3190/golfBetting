@@ -1,8 +1,13 @@
-import * as React from 'react';
+import {useState, useEffect} from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import { ListItem, List, TextField} from '@mui/material'
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import axios from 'axios'
+import {postScore, getBetDetails, postWinner} from './api/CoreAPI'
+import * as styles from './BetCard.styles'
+
 
 const style = {
   position: 'absolute',
@@ -17,25 +22,98 @@ const style = {
 };
 
 export default function SubmitScoreModal(props) {
-  const [open, setOpen] = React.useState(true);
+  const classes = styles.betCardStyles()
+  const [open, setOpen] = useState(props.open);
+  const [betData, setBetData] = useState({})
+  const [scoreInput, setScoreInput] = useState('')
+  const [confirm, setConfirm] = useState(false)
+  const [betUpdate, setBetUpdate] = useState('')
+  const currentUser = props.currentUser
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  
+  
+
+
+  useEffect(() => {
+      getBetDetails(props.betData._id['$oid']).then((res) => {
+          let r = res.data
+          r.members.map(mem => { if (mem.score){ mem.score=mem.score} else {mem.score = 0}})
+          setBetData(r)
+      })
+  },[])
+
+  useEffect(() => {
+    getBetDetails(props.betData._id['$oid']).then((res) => {
+        let r = res.data
+        r.members.map(mem => { if (mem.score){ mem.score=mem.score} else {mem.score = 0}})
+        setBetData(r)
+    })
+},[betUpdate])
+
+
+  const logScore = (d, score) => {
+    postScore(d['_id']['$oid'], currentUser.username, score).then(()=> {
+      
+    })
+  }
+
+  const handleTextInput = (event) => {
+    setScoreInput(event.target.value);
+  };
+
+  const handleClose = () => {
+    props.onChange(false)
+  };
+
+    const forceWinner = (d) => {
+
+        console.log('won')
+        postWinner(d._id['$oid'], currentUser.username, currentUser.name).then(() => {
+            setBetUpdate('abc')
+        })
+        
+        }
+
+
 
   return (
     <div>
       <Modal
-        open={false}
-        onClose={handleClose}
+        open={props.open}
+        onClose={()=> handleClose}
+        onBackdropClick={()=> handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+            {betData.members
+            ? (betData.members.map((member) => <div> 
+                <ListItem>
+                    { member.username == currentUser.username
+                        ? (
+                        
+                        <div>
+                            <div>{member.name} </div>
+                            <TextField value={scoreInput} onChange={handleTextInput} style={{width:'3rem', height:'3rem'}}> </TextField>
+                            <Button variant='contained' style={{width:'5rem', height:'3rem'}} onClick={() => logScore(betData, scoreInput)}> Submit Score</Button>
+                        </div>)
+                        : (<div> <div> {member.name} </div><div> {member.score}</div> </div> )
+                    }
+                    
+                        
+                </ListItem> 
+                </div>))
+            : <div/>}
+    <div className={classes.bottomButtons}>
+            <Button variant='contained' onClick={handleClose}> Close</Button>
+            {confirm
+            ? <Button variant='contained' color='secondary' onClick={() => forceWinner(props.betData)}> Confirm, don't be a dick</Button>
+            :<Button variant='contained' onClick={() => setConfirm(true)}> Force Claim Victory</Button>}
+            
+
+    </div>
+
+        
         </Box>
       </Modal>
     </div>

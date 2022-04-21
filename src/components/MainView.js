@@ -8,7 +8,6 @@ import {
       import axios from 'axios'
 
 import BetCard from './BetCard'
-import SubmitScoreModal from './SubmitResultModal';
 
 export default function MainView() {
   const [ bets, setBets ] = useState([])
@@ -26,10 +25,9 @@ export default function MainView() {
 
 
   return (
-    <Container style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
-      <SubmitScoreModal open={true}/>
+    <Container style={{display:'flex', height:'90vh',overflowY:'scroll', flexDirection:'column', alignItems:'center'}}>
         <div style={{marginTop:'20px'}}> 
-            {bets.map((te) => <BetCard betData={te}> </BetCard>)}
+            {bets.map((b) => <BetCard betData={b}> </BetCard>)}
         </div>
     </Container>
   )

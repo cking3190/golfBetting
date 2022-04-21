@@ -5,6 +5,7 @@ exports = function({ query, headers, body}, response) {
   { _id: BSON.ObjectId(body.id) },
   {
     $set: {
+      "active": false, 
       "winner": body.winner
     }
   })

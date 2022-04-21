@@ -18,6 +18,7 @@ import StyledFilterChip from './StyledFilterChip'
 import SwipeableEdgeDrawer from './BetDrawer';
 import {initialFormatter} from './formatters'
 import userEvent from '@testing-library/user-event';
+import {postBet} from './api/CoreAPI'
 
 export default function MainView() {
   const classes = styles.createBetStyles()
@@ -31,6 +32,7 @@ export default function MainView() {
   const [bet, setBet] = useState("")
   const [hole, setHole] = useState("");
   const [against, setAgainst] = useState([])
+  
 
   
 
@@ -78,12 +80,9 @@ export default function MainView() {
             "wager": wager,
             "active": true,
         }
-        axios({ method: 'post', url: `https://us-east-1.aws.data.mongodb-api.com/app/golftracking-oekmn/endpoint/postBet`, data: data}).then(() => {
+        postBet(currentUser.username, bet, against, hole, wager).then(() => {
             window.location.href = window.location.href = `${window.location.origin}/1/activeBets`
-
         })
-
-
     }
 
 

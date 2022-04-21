@@ -1,6 +1,11 @@
 exports = function({ query, headers, body}, response) {
 
     var pipeline = [
+        {
+            '$match': {
+                'active': False
+            }
+        },
     {
         '$addFields': {
             'toWin': {

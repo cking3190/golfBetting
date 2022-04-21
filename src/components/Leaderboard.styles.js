@@ -3,6 +3,7 @@ import {
   } from "@mui/styles";
   
   export const leaderboardStyles = makeStyles((theme) => ({
+      
 
     appContainer: {
      height:'90vh',
