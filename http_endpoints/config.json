@@ -1,15 +1,5 @@
 [
     {
-        "route": "/get_all",
-        "http_method": "GET",
-        "function_name": "get_all_tracking",
-        "validation_method": "NO_VALIDATION",
-        "respond_result": true,
-        "fetch_custom_user_data": false,
-        "create_user_on_auth": false,
-        "disabled": false
-    },
-    {
         "route": "/postBet",
         "http_method": "POST",
         "function_name": "PostBet",
@@ -20,9 +10,9 @@
         "disabled": false
     },
     {
-        "route": "/postWinner",
-        "http_method": "POST",
-        "function_name": "postWinner",
+        "route": "/getAllBets",
+        "http_method": "GET",
+        "function_name": "GetAllBets",
         "validation_method": "NO_VALIDATION",
         "respond_result": true,
         "fetch_custom_user_data": false,
@@ -30,9 +20,49 @@
         "disabled": false
     },
     {
-        "route": "/getAllBets",
+        "route": "/get_bet_details",
         "http_method": "GET",
-        "function_name": "GetAllBets",
+        "function_name": "getOneBet",
+        "validation_method": "NO_VALIDATION",
+        "respond_result": true,
+        "fetch_custom_user_data": false,
+        "create_user_on_auth": false,
+        "disabled": false
+    },
+    {
+        "route": "/getPayouts",
+        "http_method": "GET",
+        "function_name": "getPayouts",
+        "validation_method": "NO_VALIDATION",
+        "respond_result": true,
+        "fetch_custom_user_data": false,
+        "create_user_on_auth": false,
+        "disabled": false
+    },
+    {
+        "route": "/settrackingend",
+        "http_method": "GET",
+        "function_name": "set_end_distance",
+        "validation_method": "NO_VALIDATION",
+        "respond_result": true,
+        "fetch_custom_user_data": false,
+        "create_user_on_auth": false,
+        "disabled": false
+    },
+    {
+        "route": "/get_all",
+        "http_method": "GET",
+        "function_name": "get_all_tracking",
+        "validation_method": "NO_VALIDATION",
+        "respond_result": true,
+        "fetch_custom_user_data": false,
+        "create_user_on_auth": false,
+        "disabled": false
+    },
+    {
+        "route": "/postWinner",
+        "http_method": "POST",
+        "function_name": "postWinner",
         "validation_method": "NO_VALIDATION",
         "respond_result": true,
         "fetch_custom_user_data": false,
@@ -60,39 +90,9 @@
         "disabled": false
     },
     {
-        "route": "/get_bet_details",
-        "http_method": "GET",
-        "function_name": "getOneBet",
-        "validation_method": "NO_VALIDATION",
-        "respond_result": true,
-        "fetch_custom_user_data": false,
-        "create_user_on_auth": false,
-        "disabled": false
-    },
-    {
         "route": "/settrackingstart",
         "http_method": "GET",
         "function_name": "Post_Start",
-        "validation_method": "NO_VALIDATION",
-        "respond_result": true,
-        "fetch_custom_user_data": false,
-        "create_user_on_auth": false,
-        "disabled": false
-    },
-    {
-        "route": "/settrackingend",
-        "http_method": "GET",
-        "function_name": "set_end_distance",
-        "validation_method": "NO_VALIDATION",
-        "respond_result": true,
-        "fetch_custom_user_data": false,
-        "create_user_on_auth": false,
-        "disabled": false
-    },
-    {
-        "route": "/getPayouts",
-        "http_method": "GET",
-        "function_name": "getPayouts",
         "validation_method": "NO_VALIDATION",
         "respond_result": true,
         "fetch_custom_user_data": false,
