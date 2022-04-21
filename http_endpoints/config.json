@@ -30,9 +30,9 @@
         "disabled": false
     },
     {
-        "route": "/postScore",
-        "http_method": "POST",
-        "function_name": "updateScore",
+        "route": "/getAllBets",
+        "http_method": "GET",
+        "function_name": "GetAllBets",
         "validation_method": "NO_VALIDATION",
         "respond_result": true,
         "fetch_custom_user_data": false,
@@ -40,9 +40,9 @@
         "disabled": false
     },
     {
-        "route": "/getAllBets",
-        "http_method": "GET",
-        "function_name": "GetAllBets",
+        "route": "/postScore",
+        "http_method": "POST",
+        "function_name": "updateScore",
         "validation_method": "NO_VALIDATION",
         "respond_result": true,
         "fetch_custom_user_data": false,
