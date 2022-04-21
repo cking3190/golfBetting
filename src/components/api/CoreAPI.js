@@ -37,3 +37,7 @@ export function postWinner(id, name, username) {
 
     return axios({ method: 'post', url: `${BASE_URL}/postWinner`, data: data})
 }
+
+export function getPayouts() {
+    return axios({method: 'get', url: `${BASE_URL}/getPayouts`})
+}

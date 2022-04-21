@@ -4,6 +4,7 @@ import MainView from './components/MainView'
 import CreateBet from './components/CreateBet'
 import Leaderboard from './components/Leaderboard'
 import NavBar from './components/NavBar'
+import Payouts from './components/Payouts'
 import SetUser from './components/SetUser'
 import {Route, BrowserRouter,Routes} from "react-router-dom";
 
@@ -113,6 +114,7 @@ function App() {
         <Route path="/:groupId/createBet" element={<CreateBet />} />
         <Route path="/:groupId/activeBets" element={<MainView />} />
         <Route path="/:groupId/leaderboard" element={<Leaderboard />} />
+        <Route path="/:groupId/payouts" element={<Payouts />} />
       </Routes>
     </BrowserRouter>
     <NavBar/>

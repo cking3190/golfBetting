@@ -1,5 +1,6 @@
 import {useState, useEffect } from 'react';
 import List from '@mui/material/List';
+import Button from '@mui/material/Button';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
@@ -16,6 +17,7 @@ export default function Leaderboard() {
     const classes = styles.leaderboardStyles()
 
     const [leaderboard, setLeaderboard] = useState([])
+    const [allBets, setAllBets] = useState(true)
 
     useEffect(() => {
         console.log('here')
@@ -26,10 +28,19 @@ export default function Leaderboard() {
             })
         }, [])
 
+
+    const handleLogout = () => {
+        localStorage.removeItem("user")
+        window.location.href = window.location.origin
+
+    }
   
   return (
     <div className={classes.leaderboardContainer}>
+        <Button color='secondary' variant='contained' style={{position:'fixed', top:'10px', right:'10px'}}onClick={()=>handleLogout()}> Logout </Button>
         <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+            { allBets 
+            ? <div> 
             {leaderboard.map((bet) => <div> 
                 <ListItem>
                     <ListItemAvatar>
@@ -37,9 +48,28 @@ export default function Leaderboard() {
                             {initialFormatter(bet._id)}
                     </Avatar>
                     </ListItemAvatar>
-                    <ListItemText primary={bet._id} secondary={bet.winnings['$numberInt']} />
+                    <div>  {`${bet._id} :  \$${bet.winnings['$numberInt'] ? bet.winnings['$numberInt'] : bet.winnings['$numberLong']}`} </div>
                 </ListItem> 
                 </div>)}
+            </div>
+            :<div>
+            {leaderboard.map((bet) => <div> 
+                <ListItem>
+                    <ListItemAvatar>
+                    <Avatar style={{backgroundColor: '#aae6ba'}}>
+                            {initialFormatter(bet._id)}
+                    </Avatar>
+                    </ListItemAvatar>
+                    <div>  {`${bet._id} :  \$${bet.winnings['$numberInt'] ? bet.winnings['$numberInt'] : bet.winnings['$numberLong']}`} </div>
+                </ListItem> 
+                </div>)}
+            </div>
+
+
+            }
+
+
+
 
         </List>
 

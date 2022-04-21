@@ -68,8 +68,9 @@ export default function SubmitScoreModal(props) {
     const forceWinner = (d) => {
 
         console.log('won')
-        postWinner(d._id['$oid'], currentUser.username, currentUser.name).then(() => {
+        postWinner(d._id['$oid'], currentUser.name, currentUser.username).then(() => {
             setBetUpdate('abc')
+            window.location.reload()
         })
         
         }
@@ -108,7 +109,8 @@ export default function SubmitScoreModal(props) {
             <Button variant='contained' onClick={handleClose}> Close</Button>
             {confirm
             ? <Button variant='contained' color='secondary' onClick={() => forceWinner(props.betData)}> Confirm, don't be a dick</Button>
-            :<Button variant='contained' onClick={() => setConfirm(true)}> Force Claim Victory</Button>}
+            :<Button variant='contained' onClick={() => setConfirm(true)}> Force Claim Victory</Button>
+            }
             
 
     </div>

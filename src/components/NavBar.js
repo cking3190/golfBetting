@@ -23,6 +23,9 @@ export default function NavBar() {
     else if (value == 'leaderboard'){
       window.location.href=`${window.location.origin}/${groupId}/leaderboard`
   }
+  else if (value == 'payouts'){
+    window.location.href=`${window.location.origin}/${groupId}/payouts`
+}
   }, [value])
 
   return (
@@ -37,7 +40,7 @@ export default function NavBar() {
         <BottomNavigationAction label="Make Bet" value='makeBet' icon={<AttachMoneyIcon />} />
         <BottomNavigationAction label="My Bets" value='activeBets' icon={<GolfCourseIcon />} />
         <BottomNavigationAction label="Leaderboard" value='leaderboard' icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Distance Tracker" value='distanceTracker' icon={<LocationOnIcon />} />
+        <BottomNavigationAction label="Payouts" value='payouts' icon={<LocationOnIcon />} />
       </BottomNavigation>
     </Box>
   );
