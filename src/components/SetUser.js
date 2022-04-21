@@ -21,13 +21,13 @@ export default function SetUser() {
   }, [user])
 
   return (
-        <div className={classes.memberContainer}>
-            <img src={dave} style={{position:'fixed', top:'10px', left:'50px'}} height='40px' width='40px'/>
-            <img src={dave} style={{position:'fixed', top:'10px', right:'50px'}} height='40px' width='40px'/>
+        <div className={classes.memberContainer} style={{marginTop:'1rem'}}>
+            <img src={dave} style={{position:'fixed', top:'10px', left:'30px'}} height='40px' width='40px'/>
+            <img src={dave} style={{position:'fixed', top:'10px', right:'30px'}} height='40px' width='40px'/>
 
-            <Typography variant='h6'> Welcome to Dave's Betting App </Typography>
-            <Typography variant='h6'> Select Your User </Typography>
-            <Grid container spacing={5} className={classes.seeMemberGrid}>
+            <Typography variant='h6'  style={{fontSize:'.9rem'}}> Welcome to Dave's Betting App </Typography>
+            <Typography variant='h6' style={{fontSize:'.8rem'}}> Select Your User </Typography>
+            <Grid container spacing={2} className={classes.seeMemberGrid}>
 
             {
                 members.map((member) => (

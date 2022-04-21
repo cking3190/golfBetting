@@ -12,7 +12,7 @@ import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 export default function NavBar() {
   const [value, setValue] = useState('None');
   
-  let groupId = window.location.pathname.split('/')[1]
+  let groupId = 1
 
   useEffect(() => {
     if (value=='activeBets') {

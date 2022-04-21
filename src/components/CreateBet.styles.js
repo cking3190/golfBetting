@@ -21,7 +21,7 @@ import {
       },
     betContainer: {
 
-        height:'20vh',
+        height:'15vh',
         width:'100vw',
         display:'flex',
         flexDirection:'column'

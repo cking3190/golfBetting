@@ -39,7 +39,7 @@ export default function MainView() {
   
 
     useEffect(() => {
-      if (JSON.parse(localStorage.getItem('user'))){
+      if (localStorage.getItem('user') != '{}'){
         setMembers(MEMBERS)
         setCurrentUser(JSON.parse(localStorage.getItem('user')))
         setBets(["Longest Drive", "Closest to The Pin", "Best Score", "Longest Putt"])
@@ -48,7 +48,7 @@ export default function MainView() {
         setAgainst([...u])        
       }
       else {
-        console.log('here')
+
         window.location.href = window.location.origin
       }
 
@@ -94,6 +94,7 @@ export default function MainView() {
 
         <div className={classes.memberContainer}>
             <div className={classes.headerText}>Members</div>
+            <div style={{fontSize:'.8rem', display:'flex', marginLeft:'50px'}}> Tap who you want to bet against</div>
             <div className={classes.memberGrid}>
 
             {

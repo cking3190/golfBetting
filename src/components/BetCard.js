@@ -12,7 +12,7 @@ import {
 
 import {initialFormatter} from './formatters'
 import axios from 'axios'
-import {postScore} from './api/CoreAPI'
+import {undoWinner} from './api/CoreAPI'
 import SubmitScoreModal from './SubmitResultModal';
 import * as styles from './BetCard.styles'
 
@@ -37,6 +37,8 @@ export default function BetCard(props) {
   // }
 
 
+
+
   useEffect(()=> {
     setCurrentUser(JSON.parse(localStorage.getItem('user')))
 
@@ -46,37 +48,28 @@ export default function BetCard(props) {
     setModalOpen(tog)
   }
 
+  const undo = (d) => {
+    undoWinner(d['_id']['$oid']).then(()=> {
+      window.location.reload()
+    })
+  }
 
 
 
   return (
     <Card sx={{ display: 'flex', marginBottom:'20px' }}>
-      <SubmitScoreModal open={modalOpen} onChange={toggleModal} betData={props.betData} currentUser={currentUser}/>
+      {modalOpen
+      ?<SubmitScoreModal open={modalOpen} onChange={toggleModal} betData={props.betData} currentUser={currentUser}/>
+      :<div></div>
+      }
+      
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
-          <div style={{display:'flex'}}>
+          <div style={{display:'flex', flexDirection:'column'}}>
           <Typography component="div" variant="h5">
             ${props.betData.wager["$numberInt"]} {props.betData.bet} - Hole {props.betData.hole["$numberInt"]} 
           </Typography>
-
-          </div>
-
-      
-
-
-        </CardContent>
-        {
-          props.betData.winner
-          ? <div>WINNER - {props.betData.winner.name}  </div>
-          : (        <div style={{position:'relative', top:'25px', left:'150px'}}>
-          <Button onClick={() => toggleModal(true)} variant='contained'> Open Scores </Button>
-          
-        </div>)
-
-        }
-
-        <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-        <div style={{display:'flex'}}>
+          <div style={{display:'flex', flexDirection:'row'}}>
           {
                         props.betData.members.map((member) => (
                             <div>
@@ -87,11 +80,43 @@ export default function BetCard(props) {
                             </div>
                         ))
                         }
+
+          </div>
+
+
+          </div>
+
+      
+
+
+        </CardContent>
+        <div style={{display:'flex', flexDirection:'column', alignItems:'flex-start',justifyContent:'space-between'}}>
+        {
+          props.betData.winner
+          ? <div>WINNER - {props.betData.winner.name}  </div>
+          : (        <div style={{position:'relative', left:'190px'}}>
+          <Button onClick={() => toggleModal(true)} variant='contained'> Open Scores </Button>
+          
+        </div>)
+
+        }
+
+        <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+        <div style={{display:'flex'}}>
+
           </div>
                         
 
         </Box>
+
+
+        </div>
+        
       </Box>
+      {currentUser.username === 'cking'
+      ? <Button onClick={() => undo(props.betData)}style={{height:'.5rem'}} variant='contained' color='secondary'> Undo</Button>
+      : <div/>
+      }
     </Card>
   );
 }

@@ -49,6 +49,15 @@ export default function Payouts() {
     <div className={classes.leaderboardContainer}>
                     <img src={dave} style={{position:'fixed', top:'10px', left:'50px'}} height='40px' width='40px'/>
             <img src={dave} style={{position:'fixed', top:'10px', right:'50px'}} height='40px' width='40px'/>
+            <img src={dave} style={{position:'fixed', top:'10px', left:'10px'}} height='40px' width='40px'/>
+            <img src={dave} style={{position:'fixed', top:'10px', right:'10px'}} height='40px' width='40px'/>
+            <img src={dave} style={{position:'fixed', top:'10px', left:'90px'}} height='40px' width='40px'/>
+            <img src={dave} style={{position:'fixed', top:'10px', right:'90px'}} height='40px' width='40px'/>
+            <img src={dave} style={{position:'fixed', top:'10px', left:'130px'}} height='40px' width='40px'/>
+            <img src={dave} style={{position:'fixed', top:'10px', right:'130px'}} height='40px' width='40px'/>
+            <img src={dave} style={{position:'fixed', top:'10px', right:'170px'}} height='40px' width='40px'/>
+
+
 
 
              

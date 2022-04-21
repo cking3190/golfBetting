@@ -41,3 +41,12 @@ export function postWinner(id, name, username) {
 export function getPayouts() {
     return axios({method: 'get', url: `${BASE_URL}/getPayouts`})
 }
+
+
+export function undoWinner(id) {
+    const data = {
+        id : id
+    }
+
+    return axios({ method: 'post', url: `${BASE_URL}/undo_winner`, data: data})
+}

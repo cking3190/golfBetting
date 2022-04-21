@@ -8,13 +8,7 @@ exports = function({ query, headers, body}, response) {
         },
     {
         '$addFields': {
-            'toWin': {
-                '$multiply': [
-                    {
-                        '$size': '$members'
-                    }, '$wager'
-                ]
-            }
+            "toWin" : {"$multiply" : [{"$subtract":[{ "$size": "$members" }, 1]}, "$wager"]}
         }
     }, {
         '$unwind': {
