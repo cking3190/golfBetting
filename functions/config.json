@@ -1,5 +1,26 @@
 [
     {
+        "name": "postWinner",
+        "private": false,
+        "run_as_system": true
+    },
+    {
+        "name": "PostBet",
+        "private": false,
+        "run_as_system": true
+    },
+    {
+        "name": "Post_Start",
+        "private": false,
+        "run_as_system": true
+    },
+    {
+        "name": "getOneBet",
+        "private": false,
+        "run_as_system": true,
+        "disable_arg_logs": true
+    },
+    {
         "name": "set_end_distance",
         "private": false,
         "run_as_system": true
@@ -15,17 +36,7 @@
         "run_as_system": true
     },
     {
-        "name": "PostBet",
-        "private": false,
-        "run_as_system": true
-    },
-    {
         "name": "getLeaderboard",
-        "private": false,
-        "run_as_system": true
-    },
-    {
-        "name": "Post_Start",
         "private": false,
         "run_as_system": true
     },
@@ -40,14 +51,8 @@
         "run_as_system": true
     },
     {
-        "name": "postWinner",
+        "name": "getPayouts",
         "private": false,
         "run_as_system": true
-    },
-    {
-        "name": "getOneBet",
-        "private": false,
-        "run_as_system": true,
-        "disable_arg_logs": true
     }
 ]
